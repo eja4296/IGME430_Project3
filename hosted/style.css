@@ -1,0 +1,507 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Limelight', cursive;
+}
+
+#logo {
+    height: 40px;
+    width: 40;
+    padding-top: 5px;
+    float:left;
+    border-radius: 8px;
+}
+
+nav {
+    width: 75%;
+    position: relative;
+    left: 12.5%;
+    height: 50px;
+    background-color: white;
+    border-top: 20px solid black; 
+    border-bottom: 20px solid black; 
+    border-color: black;
+}
+
+nav:nth-child(1) {
+    padding-left: 25px;
+}
+
+.navlink {
+    padding: 5px;
+    padding-top: 12px;
+    padding-left: 20px;
+    color: black;
+    font-size: 1.3em;
+    float: left;
+    
+}
+
+.navlink a, .navlink a:link, .navlink a:visited, .navlink a:hover, .navlink a:active {
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: background-color 0.4s ease;
+    
+}
+
+.navlink a:hover {
+    transition: background-color 0.8s ease;
+    background-color: red;
+}
+
+#title{
+  text-align: center;
+  color: red;
+  font-size: 72px;
+  margin-bottom: -250px;
+}
+.formHead{
+  margin-top: 100px;
+  position: relative;
+  left: 12.5%;
+  color: black;
+}
+
+#accountInfo{
+  position: relative;
+  left: 12.5%;
+  
+}
+
+#about{
+  width: 75%;
+  position: relative;
+  left: 12.5%;
+  text-align: center;
+  font-family: sans-serif;
+  margin-top: 100px;
+  color: white;
+  background-color: black;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 10px;
+  border: 5px solid red;
+}
+
+.message{
+  position: relative;
+  left: 12.5%;
+}
+
+.createdDate{
+  font-family: times;
+}
+
+#heading{
+  width: 75%;
+  position: relative;
+  left: 12.5%;
+  text-align: center;
+  color: white;
+  
+  
+  margin-bottom: auto;
+  font-size: 7.5em;
+  background-image: url("./img/banner.jpg");
+  
+  
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#welcome{
+  display: inline;
+  color: black;
+}
+
+#credits{
+  position: relative;
+  display: inline;
+  margin-left: 25px;
+  color: black;
+}
+
+.userInformation{
+  color: red;
+  display: inline;
+}
+
+.pageTitle {
+  color: red;
+  font-size: 5em;
+}
+
+#pageInfo{
+  width: 75%;
+  position: relative;
+  left: 12.5%;
+  text-align: center;
+  margin-top: -50px;
+  margin-bottom: -50px; 
+}
+
+.userStuff{
+  padding-bottom: 25px;
+  width: 75%;
+  position: relative;
+  left: 12.5%;
+  border-bottom: 2px solid black;
+  margin-bottom: -50px;
+}
+
+#loginForm label, #signupForm label, #changePassForm label{
+  margin-right: 50px;
+  margin-bottom: 10px;
+}
+
+#pageNav{
+  display: inline;
+  text-align: center;
+}
+
+#content{
+  margin-top: -250px;
+}
+
+.domoForm, .messageForm {
+    
+    height: 35px;
+    width: 75%;
+    margin-top:0px;
+    margin-bottom: 30px;
+    padding-top:10px;
+    background-color: black;
+    border-radius: 4px;
+    position: relative;
+    left: 12.5%;
+}
+
+.domoForm label, .messageForm label {
+    display: inline-block;
+    width: 75px;
+    margin-left: 25px;
+    font-size: 1.2em;
+    float: left;
+    color: white;
+}
+
+.domoForm input, .messageForm input, .messageForm select, .domoForm select{
+    float:left;
+    margin-right: 30px;
+}
+
+#userCreditForm label{
+  margin-right: 10px;
+}
+
+.gameRules{
+  color: red;
+  font-family: sans-serif;
+}
+
+#messageForm select, .messageForm input, .domoForm select{
+  border-radius: 2px;
+}
+
+
+.messageForm{
+  height: 35px;
+}
+
+.messageForm label {
+  width: 155px;
+}
+
+#makeDomo{
+  margin-bottom: 150px;
+}
+
+.messageForm .makeDomoSubmit{
+  width: 150px;
+  margin-left: 25px;
+}
+
+.makeDomoSubmit {
+    transition: background-color 0.4s ease;
+    display: inline;
+    width: 100px;
+    background-color: white;
+    border-radius: 2px;
+    color: black;
+    text-decoration: none;
+}
+
+.makeDomoSubmit:link, .makeDomoSubmit:visited, .makeDomoSubmit:hover, .makeDomoSubmit:active {
+    color: black;
+}
+
+.makeDomoSubmit:hover {
+    transition: background-color 0.4s ease;
+    background-color: red;
+}
+
+.mainForm {
+    height: 300px;
+    width: 350px;
+    margin: 0 auto;
+    padding-top: 350px;
+    font-size: 1.2em;
+}
+
+.mainForm h3 {
+    text-align: center;
+}
+
+.mainForm label {
+    display: inline-block;
+    width: 100px;
+    margin-right: 10px;
+    text-align: right;
+    font-size: 1.2em;
+}
+
+.formSubmit {
+    transition: background-color 0.4s ease;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 14px;
+    font-size: 1.2em;
+    width: 100px;
+    background-color: white;
+    border-radius: 5px;
+    border-color: black;
+    padding: 3px 0px;
+    color: black;
+    text-decoration: none;
+    box-shadow: 1px 1px 3px black;   
+}
+
+#changePassForm{
+  width: 600px;
+  margin-top: -250px;
+}
+#changePassForm .formSubmit{
+  width: 200px;
+}
+
+#changePassForm label{
+  display: inline-block;
+  width: 250px;
+  text-align: center;
+}
+
+#changePassForm input{
+  width: 300px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+
+.formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
+    color: white;
+}
+
+.formSubmit:hover {
+    transition: background-color 0.4s ease;
+    background-color: red;
+}
+
+#user, #pass, #pass2, #newpass, #newpass2 {
+    text-align: center;
+    font-size: 1.1em;
+    width: 180px;
+    border-radius: 6px;
+}
+
+#user:focus, #pass:focus, #pass2:focus, #newpass:focus, #newpass2:focus{
+    outline: none;
+    box-shadow: 0px 0px 1px 1px red;
+}
+
+input:focus, select:focus{
+  outline-color: red;
+}
+
+#errorBubble {
+    display:none;
+    bottom: 5px;
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    z-index: 200;
+    right: 12.5%;
+    overflow: hidden;
+}
+
+#errorBubble h3 {
+    width: 300px;
+    position: absolute;
+    top: 0px;
+}
+
+#speech {
+    height: 100px;
+    width: 300px;
+    top: -50px;
+    z-index:300;
+}
+
+#errorMessage {
+    position: absolute;
+    top: -5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    font-style: italic;
+    left: 15px;
+}
+
+#notFound {
+    top: 55px;
+    font-weight: bold;
+    color: black;
+    font-style: italic;
+    text-align: center;
+    font-family: sans-serif;
+    
+}
+
+#notFoundHelp {
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: normal;
+    margin-bottom: 50px;
+}
+
+#domo {
+    z-index: 225;
+    margin-top: -20px;
+    margin-left: 135px;
+    height: 450px;
+    width: 300px;
+    -ms-transform: rotate(330deg);
+    -webkit-transform: rotate(330deg); 
+    transform: rotate(330deg);
+}
+
+#domos, #messages {
+    width: 75%;
+    min-width: 400px;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.domo, .newMessage {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: white;
+    border-bottom: 2px solid black;
+    min-height:50px;
+    overflow: hidden;
+}
+
+.domo:hover, .newMessage:hover {
+    transition: color 2.5 ease-out;
+    color: white;
+    transition: border-radius 5s ease-in;
+    border-radius: 10px;
+    transition: background-color 2.5s ease-out;
+    background-color: black;
+}
+
+img.messageImage {
+    margin-left: 25px;
+    margin-right: 35px;
+    height: 75px;
+    width: 125px;
+    margin-top:10px;
+    float:left;
+    padding-right: 25px;
+    border-right: 3px solid red;
+}
+
+#logo{
+  height: 55px;
+  width: 55px;
+  margin: 0px;
+  margin-top: -2.5px;
+  padding: 0px;
+}
+
+h3.emptyDomo {
+    width: 400px;
+    font-size: 1.5em;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 18px;
+}
+
+h3.domoName {
+    float:left;
+    width: 200px;
+    font-weight: bold;
+    padding-left: 65px;
+    font-size: 1.5em;
+}
+
+h3.domoAge {
+    float:left;
+    text-align: left;
+    width: 200px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+h3.domoCredit{
+  float:left;
+  text-align: left;
+  width: 200px;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.domo:first-child {
+    margin-top: 10px;
+}
+
+.domo:last-child {
+    margin-bottom:10px;
+}
+
+.game {
+  width: 75%;
+  position: relative;
+  left: 12.5%;
+  text-align: center;
+  border-bottom: 2px solid red;
+  margin-bottom: 250px;
+}
+
+.warning{
+  font-family: serif;
+  color: red;
+}
+
+footer{
+  position: relative;
+  text-align: center;
+  bottom: 10px;
+  margin-top: 25px;
+  font-family: times;
+}
