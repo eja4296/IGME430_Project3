@@ -10,35 +10,72 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.6.2/remarkable.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Limelight" rel="stylesheet">
   <link rel="shortcut icon" href="/assets/img/dice1.png"/>
-  <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
+  
+  <link type="text/css" rel="stylesheet" href="/assets/materialize/css/materialize.min.css"  media="screen,projection"/>
+  <link rel="stylesheet" type="text/css" href="/assets/style2.css"/>
 </head>
 <body>
-   <h2 id="heading">Online Casino</h2>
-  <nav><a href="/login"><img id="logo" src="/assets/img/pokerChip.png" alt="face logo"/></a>
-    <div class="navlink">
-      <a href="/logout">Log out</a> |
-      <div id="pageNav">
-        <a id="homeNav" class="pageNav" href="/casino">Home</a>
-        <a id="gameNav" class="pageNav" href="/game">Games</a>
-        <a id="messageNav" class="pageNav" href="/message">Messages</a>
-        <a id="accountNav"class="pageNav"  href="/account">Account</a>
-      </div>
-    </div>
+  <h2 id="heading" class="center-align z-depth-2">Online Casino</h2>
+  <div class="nav-wrapper">
+  <nav class=""><a href="/login"><img class="responsive-img left" id="logo" src="/assets/img/pokerChip.png" alt="face logo"/></a>
+    
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><img class="responsive-img right material-icons" id="hamberger" src="/assets/img/hamberger.png" alt="hamberger"/></a>
+    
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li><a class="homeNav" class="pageNav" href="/casino">Home</a></li>
+      <li><a class="gameNav" class="pageNav" href="/game">Games</a></li>  
+      <li>    <a class="messageNav" class="pageNav" href="/message">Messages</a></li>  
+        <li>  <a class="accountNav"class="pageNav"  href="/account">Account</a></li>  
+        
+      </ul>
+    
+
+    
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/logout">Log out</a></li>
+  
+        
+      </ul>
+    
+  <ul class="sidenav right" id="mobile-demo">
+    
+    <li><a class="homeNav" class="pageNav " href="/casino">Home</a></li>
+    <li><a class="gameNav" class="pageNav " href="/game">Games</a></li>
+    <li><a class="messageNav" class="pageNav " href="/message">Messages</a></li>
+    <li><a class="accountNav" class="pageNav " href="/account">Account</a></li>
+    <li><a class="pageNav" href="/logout">Log Out</a></li>
+  </ul>
+    
   </nav>
-  <section id="pageInfo"></section>
-  <section id="userInfo">
-  </section>
-  <section class="sectionTitles"></section>
-  <section id="makeDomo">
-  </section>
-  <section id="domos">
-  </section>
+  </div>
+
+
+  <div class="container">
+          <div class="section" id="pageInfo"></div>
+          <div class="section" id="userInfo">
+          </div>
+          <div class="sectionTitles section"></div>
+          <div class="section" id="makeDomo">
+          </div>
+          <div class="section" id="domos">
+          </div>
+  </div>
   <div id="errorBubble"><img id="speech" src="/assets/img/bubble2.png" alt="speech box"/>
     <h3><span id="errorMessage"></span></h3>
   </div>
-  <footer>
-    &copy Erik Azzarano 2018
-  </footer>
+  
+  <div class="container">
+    <div class="divider"></div>
+  <div class="section">
+   <div class="footer-copyright">
+            <div class="container center-align">
+            &copy Erik Azzarano 2018
+            
+            </div>
+  </div>
+    </div>
+    </div>
   <script src="/assets/bundle.js"></script>
+  <script type="text/javascript" src="/assets/materialize/js/materialize.min.js"></script>
 </body>
 </html>

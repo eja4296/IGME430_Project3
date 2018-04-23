@@ -42,32 +42,41 @@ const handleSignup = (e) => {
 // Login window
 const LoginWindow = (props) => {
   return(
+    <div className="container">
+    <div className="section">
+    <div className="row">
     <form id="loginForm"
       name="loginForm"
       onSubmit={handleLogin}
       action="/login"
       method="POST"
-      className="mainForm"
+      className="mainForm col s12 m6 l4 offset-l4 offset-m3"
       >
     <label htmlFor="username">Username: </label>
     <input id="user" type="text" name="username" placeholder="username"/>
     <label htmlFor="pass">Password: </label>
     <input id="pass" type="password" name="pass" placeholder="password"/>
     <input type="hidden" name="_csrf" value={props.csrf}/>
-    <input className="formSubmit" type="submit" value="Sign In"/>
+    <input className="formSubmit waves-effect waves-light btn" type="submit" value="Sign In"/>
     </form>
+    </div>
+    </div>
+    </div>
   );
 };
 
 // Singup Window
 const SignupWindow = (props) => {
   return(
+    <div className="container">
+    <div className="section">
+    <div className="row">
     <form id="signupForm"
       name="signupForm"
       onSubmit={handleSignup}
       action="/signup"
       method="POST"
-      className="mainForm"
+      className="mainForm col s12 m6 l4 offset-l4 offset-m3"
       >
     <label htmlFor="username">Username: </label>
     <input id="user" type="text" name="username" placeholder="username"/>
@@ -76,8 +85,11 @@ const SignupWindow = (props) => {
       <label htmlFor="pass2">Password: </label>
     <input id="pass2" type="password" name="pass2" placeholder="retype password"/>
     <input type="hidden" name="_csrf" value={props.csrf}/>
-    <input className="formSubmit" type="submit" value="Sign Up"/>
+    <input className="formSubmit waves-effect waves-light btn" type="submit" value="Sign Up"/>
     </form>
+    </div>
+    </div>
+    </div>
   );
 };
 

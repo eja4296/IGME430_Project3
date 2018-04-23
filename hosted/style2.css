@@ -1,0 +1,29 @@
+
+
+#heading{
+  color: white;
+  
+  font-family: 'Limelight', cursive;
+  margin: auto;
+  font-size: 7.5em;
+  background-image: url("./img/banner.jpg");
+  
+  
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#logo {
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    
+    
+}
+
+#hamberger{
+  height: 50px;
+    width: 50px;
+    margin: 5px;
+}

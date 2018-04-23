@@ -86,7 +86,7 @@ var handleChangePass = function handleChangePass(e) {
   $("#errorBubble").animate({ opacity: 0 }, 400);
   document.querySelector("#errorBubble").style.display = "none";
 
-  if ($("#user").val() == '' || $("#pass").val() == '' || $("#newpass").val() == '' || $("#newpass2").val() == '') {
+  if ($("#pass").val() == '' || $("#newpass").val() == '' || $("#newpass2").val() == '') {
     handleError("All Fields Necessary");
     return false;
   }
@@ -130,36 +130,44 @@ var CreditForm = function CreditForm(props) {
     "div",
     { id: "forms" },
     React.createElement(
-      "section",
-      { id: "about" },
+      "div",
+      { className: "row" },
       React.createElement(
-        "h2",
-        null,
-        "Thank you for visiting my Online Casino! When the website is fully functional, you will be required to provide payment information, but for now, please feel free to add credits (up to $100000) to test it out. Enjoy!"
+        "div",
+        { id: "about", className: "col s6 center-align offset-s3" },
+        React.createElement(
+          "p",
+          null,
+          "Thank you for visiting my Online Casino! When the website is fully functional, you will be required to provide payment information, but for now, please feel free to add credits (up to $100000) to test it out. Enjoy!"
+        )
       )
     ),
     React.createElement(
-      "h2",
-      { className: "formHead" },
-      "Add Funds"
-    ),
-    React.createElement(
-      "form",
-      { id: "userCreditForm",
-        onSubmit: handleAddCredit,
-        name: "userCreditForm",
-        action: "/updateCredit",
-        method: "POST",
-        className: "domoForm"
-      },
+      "div",
+      { className: "row" },
       React.createElement(
-        "label",
-        { htmlFor: "credit" },
-        "Credits: "
-      ),
-      React.createElement("input", { id: "domoCreditUpdate", type: "number", name: "credit", placeholder: "$1" }),
-      React.createElement("input", { type: "hidden", name: "_csrf", value: props.csrf }),
-      React.createElement("input", { className: "makeDomoSubmit", type: "submit", value: "Add Funds" })
+        "form",
+        { id: "userCreditForm",
+          onSubmit: handleAddCredit,
+          name: "userCreditForm",
+          action: "/updateCredit",
+          method: "POST",
+          className: "domoForm col s12 m6 l4"
+        },
+        React.createElement(
+          "h2",
+          { className: "formHead" },
+          "Add Funds"
+        ),
+        React.createElement(
+          "label",
+          { htmlFor: "credit" },
+          "Credits: "
+        ),
+        React.createElement("input", { id: "domoCreditUpdate", type: "number", name: "credit", placeholder: "$1" }),
+        React.createElement("input", { type: "hidden", name: "_csrf", value: props.csrf }),
+        React.createElement("input", { className: "makeDomoSubmit waves-effect waves-light btn", type: "submit", value: "Add Funds" })
+      )
     )
   );
 };
@@ -175,13 +183,17 @@ var Games = function Games(props) {
     "div",
     { id: "games" },
     React.createElement(
-      "h2",
-      { className: "formHead" },
-      "Play Games"
+      "div",
+      { className: "row" },
+      React.createElement(
+        "h2",
+        { className: "formHead" },
+        "Play Games"
+      )
     ),
     React.createElement(
-      "section",
-      { className: "game" },
+      "div",
+      { className: "row" },
       React.createElement(
         "h2",
         null,
@@ -202,22 +214,31 @@ var Games = function Games(props) {
           className: "domoForm"
         },
         React.createElement(
-          "label",
-          { htmlFor: "guess" },
-          "Guess: "
-        ),
-        React.createElement(
-          "select",
-          { id: "coinGuess", guess: "game" },
+          "div",
+          { className: "input-field col s12" },
           React.createElement(
-            "option",
-            { value: "Heads" },
-            "Heads"
+            "select",
+            { id: "coinGuess" },
+            React.createElement(
+              "option",
+              { value: "", disabled: true, selected: true },
+              "Choose your option"
+            ),
+            React.createElement(
+              "option",
+              { value: "Heads" },
+              "Heads"
+            ),
+            React.createElement(
+              "option",
+              { value: "Tails" },
+              "Tails"
+            )
           ),
           React.createElement(
-            "option",
-            { value: "Tails" },
-            "Tails"
+            "label",
+            null,
+            "Guess: "
           )
         ),
         React.createElement(
@@ -228,7 +249,7 @@ var Games = function Games(props) {
         React.createElement("input", { id: "coinBet", type: "number", min: "1", name: "bet", placeholder: "$1" }),
         React.createElement("input", { id: "flipCoinUpdate", type: "hidden", name: "credit", value: "-1" }),
         React.createElement("input", { type: "hidden", name: "_csrf", value: props.csrf }),
-        React.createElement("input", { className: "makeDomoSubmit", type: "submit", value: "Flip Coin" })
+        React.createElement("input", { className: "makeDomoSubmit waves-effect waves-light btn", type: "submit", value: "Flip Coin" })
       ),
       React.createElement(
         "h2",
@@ -237,8 +258,8 @@ var Games = function Games(props) {
       )
     ),
     React.createElement(
-      "section",
-      { className: "game" },
+      "div",
+      { className: "row" },
       React.createElement(
         "h2",
         null,
@@ -274,32 +295,36 @@ var Messages = function Messages(props) {
       },
       React.createElement("input", { type: "hidden", name: "name", value: userName }),
       React.createElement(
-        "label",
-        { htmlFor: "game" },
-        "Game Played: "
-      ),
-      React.createElement(
-        "select",
-        { id: "messageGame", name: "game" },
+        "div",
+        { className: "input-field col s12" },
         React.createElement(
-          "option",
-          { value: "Coin Flip" },
-          "Coin Flip"
+          "select",
+          { id: "messageGame", name: "message" },
+          React.createElement(
+            "option",
+            { value: "Coin Flip" },
+            "Coin Flip"
+          ),
+          React.createElement(
+            "option",
+            { value: "Roulette" },
+            "Roulette"
+          ),
+          React.createElement(
+            "option",
+            { value: "Blackjack 21" },
+            "Blackjack 21"
+          ),
+          React.createElement(
+            "option",
+            { value: "Texas hold 'em" },
+            "Texas Hold 'em"
+          )
         ),
         React.createElement(
-          "option",
-          { value: "Roulette" },
-          "Roulette"
-        ),
-        React.createElement(
-          "option",
-          { value: "Blackjack 21" },
-          "Blackjack 21"
-        ),
-        React.createElement(
-          "option",
-          { value: "Texas hold 'em" },
-          "Texas Hold 'em"
+          "label",
+          { htmlFor: "game" },
+          "Game Played: "
         )
       ),
       React.createElement(
@@ -309,7 +334,7 @@ var Messages = function Messages(props) {
       ),
       React.createElement("input", { id: "messageMoney", type: "number", min: "1", name: "money", placeholder: "$1" }),
       React.createElement("input", { type: "hidden", name: "_csrf", value: props.csrf }),
-      React.createElement("input", { className: "makeDomoSubmit", type: "submit", value: "Post Message" })
+      React.createElement("input", { className: "makeDomoSubmit waves-effect waves-light btn", type: "submit", value: "Post Message" })
     ),
     React.createElement("section", { id: "messages" })
   );
@@ -326,75 +351,73 @@ var AccountInfo = function AccountInfo(props) {
     "div",
     { id: "account" },
     React.createElement(
-      "h2",
-      { className: "formHead" },
-      "Account Information"
-    ),
-    React.createElement(
       "div",
-      { id: "accountInfo" },
+      { className: "row" },
       React.createElement(
-        "h3",
-        null,
-        "Your Name: ",
+        "div",
+        { className: "col s12 m6" },
         React.createElement(
-          "p",
-          { className: "userInformation" },
-          props.user.username
-        )
-      ),
-      React.createElement(
-        "h3",
-        null,
-        "Your Credits: ",
+          "h2",
+          { className: "formHead" },
+          "Account Information"
+        ),
         React.createElement(
-          "p",
-          { className: "userInformation" },
-          "$",
-          props.user.credit
+          "div",
+          { id: "accountInfo" },
+          React.createElement(
+            "h4",
+            null,
+            "Your Username: ",
+            props.user.username
+          ),
+          React.createElement(
+            "h4",
+            null,
+            "Your Credits: $",
+            props.user.credit
+          )
         )
       )
     ),
     React.createElement(
-      "form",
-      { id: "changePassForm",
-        name: "changePassForm",
-        onSubmit: handleChangePass,
-        action: "/changePass",
-        method: "POST",
-        className: "mainForm"
-      },
+      "div",
+      { className: "row" },
       React.createElement(
-        "h2",
-        null,
-        "Change Password"
-      ),
-      React.createElement(
-        "label",
-        { htmlFor: "username" },
-        "Username: "
-      ),
-      React.createElement("input", { id: "user", type: "text", name: "username", placeholder: "username" }),
-      React.createElement(
-        "label",
-        { htmlFor: "pass" },
-        "Current Password: "
-      ),
-      React.createElement("input", { id: "pass", type: "password", name: "pass", placeholder: "current password" }),
-      React.createElement(
-        "label",
-        { htmlFor: "newpass" },
-        "New Password: "
-      ),
-      React.createElement("input", { id: "newpass", type: "password", name: "newpass", placeholder: "new password" }),
-      React.createElement(
-        "label",
-        { htmlFor: "newpass2" },
-        "New Password: "
-      ),
-      React.createElement("input", { id: "newpass2", type: "password", name: "newpass2", placeholder: "retype new password" }),
-      React.createElement("input", { type: "hidden", name: "_csrf", value: props.csrf }),
-      React.createElement("input", { className: "formSubmit", type: "submit", value: "Change Password" })
+        "form",
+        { id: "changePassForm",
+          name: "changePassForm",
+          onSubmit: handleChangePass,
+          action: "/changePass",
+          method: "POST",
+          className: "mainForm col s12 m6 l4"
+        },
+        React.createElement(
+          "h2",
+          null,
+          "Change Password"
+        ),
+        React.createElement("input", { id: "user", type: "hidden", name: "username", value: props.user.username }),
+        React.createElement(
+          "label",
+          { htmlFor: "pass" },
+          "Current Password: "
+        ),
+        React.createElement("input", { id: "pass", type: "password", name: "pass", placeholder: "current password" }),
+        React.createElement(
+          "label",
+          { htmlFor: "newpass" },
+          "New Password: "
+        ),
+        React.createElement("input", { id: "newpass", type: "password", name: "newpass", placeholder: "new password" }),
+        React.createElement(
+          "label",
+          { htmlFor: "newpass2" },
+          "New Password: "
+        ),
+        React.createElement("input", { id: "newpass2", type: "password", name: "newpass2", placeholder: "retype new password" }),
+        React.createElement("input", { type: "hidden", name: "_csrf", value: props.csrf }),
+        React.createElement("input", { className: "formSubmit waves-effect waves-light btn", type: "submit", value: "Change Password" })
+      )
     )
   );
 };
@@ -459,25 +482,16 @@ var UserInfo = function UserInfo(props) {
     "div",
     { className: "userStuff" },
     React.createElement(
-      "h1",
+      "h4",
       { id: "welcome" },
       "Welcome: ",
-      React.createElement(
-        "p",
-        { className: "userInformation" },
-        props.user.username
-      )
+      props.user.username
     ),
     React.createElement(
-      "h1",
+      "h4",
       { id: "credits" },
-      "Credits: ",
-      React.createElement(
-        "p",
-        { className: "userInformation" },
-        "$",
-        props.user.credit
-      )
+      "Credits: $",
+      props.user.credit
     )
   );
 };
@@ -503,7 +517,7 @@ var HomeWindow = function HomeWindow(props) {
     null,
     React.createElement(
       "h1",
-      { className: "pageTitle" },
+      { className: "pageTitle  center-align" },
       "Home"
     )
   );
@@ -516,7 +530,7 @@ var GameWindow = function GameWindow(props) {
     null,
     React.createElement(
       "h1",
-      { className: "pageTitle" },
+      { className: "pageTitle  center-align" },
       "Games"
     )
   );
@@ -529,7 +543,7 @@ var MessageWindow = function MessageWindow(props) {
     null,
     React.createElement(
       "h1",
-      { className: "pageTitle" },
+      { className: "pageTitle  center-align" },
       "Messages"
     )
   );
@@ -542,7 +556,7 @@ var AccountWindow = function AccountWindow(props) {
     null,
     React.createElement(
       "h1",
-      { className: "pageTitle" },
+      { className: "pageTitle  center-align" },
       "Account"
     )
   );
@@ -574,10 +588,10 @@ var setup = function setup(csrf) {
   csrfToken = csrf;
 
   // set listeners for nav buttons
-  var homeNav = document.querySelector("#homeNav");
-  var gameNav = document.querySelector("#gameNav");
-  var accountNav = document.querySelector("#accountNav");
-  var messageNav = document.querySelector("#messageNav");
+  var homeNav = document.querySelector(".homeNav");
+  var gameNav = document.querySelector(".gameNav");
+  var accountNav = document.querySelector(".accountNav");
+  var messageNav = document.querySelector(".messageNav");
 
   homeNav.addEventListener("click", function (e) {
     e.preventDefault();
@@ -596,6 +610,7 @@ var setup = function setup(csrf) {
     showGames(csrf);
     document.querySelector("#errorBubble").style.opacity = 0;
     document.querySelector("#errorBubble").style.display = "none";
+
     return false;
   });
 
@@ -634,6 +649,10 @@ var getToken = function getToken() {
 
 $(document).ready(function () {
   getToken();
+});
+
+$(document).ready(function () {
+  $('.sidenav').sidenav();
 });
 "use strict";
 

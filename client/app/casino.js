@@ -87,7 +87,7 @@ const handleChangePass= (e) => {
   $("#errorBubble").animate({opacity: 0},400);
   document.querySelector("#errorBubble").style.display = "none";
   
-  if($("#user").val() == '' || $("#pass").val() == '' || $("#newpass").val() == '' || $("#newpass2").val() == ''){
+  if($("#pass").val() == '' || $("#newpass").val() == '' || $("#newpass2").val() == ''){
     handleError("All Fields Necessary");
     return false;
   }
@@ -130,24 +130,28 @@ const handleMessageUpdate = (e) => {
 const CreditForm = (props) => {
   return(
     <div id="forms">
+    <div className="row">
+    <div id="about" className="col s6 center-align offset-s3">
+      <p>Thank you for visiting my Online Casino! When the website is fully functional, you will be required to provide payment information, but for now, please feel free to add credits (up to $100000) to test it out. Enjoy!</p>
+    </div>
+    </div>
     
-    <section id="about">
-      <h2>Thank you for visiting my Online Casino! When the website is fully functional, you will be required to provide payment information, but for now, please feel free to add credits (up to $100000) to test it out. Enjoy!</h2>
-    </section>
-    
-    <h2 className="formHead">Add Funds</h2>
+    <div className="row">
     <form id="userCreditForm"
           onSubmit={handleAddCredit}
           name="userCreditForm"
           action="/updateCredit"
           method="POST"
-          className="domoForm"
+          className="domoForm col s12 m6 l4"
       >
+            
+            <h2 className="formHead">Add Funds</h2>
         <label htmlFor="credit">Credits: </label>
         <input id="domoCreditUpdate" type="number" name="credit" placeholder="$1"/>
         <input type="hidden" name="_csrf" value={props.csrf} />
-        <input className="makeDomoSubmit" type="submit" value="Add Funds" />
+        <input className="makeDomoSubmit waves-effect waves-light btn" type="submit" value="Add Funds" />
     </form>
+    </div>
     </div>
   );
 };
@@ -164,8 +168,12 @@ const showAddCredit = (csrf) => {
 const Games = (props) => {
   return(
     <div id="games">
+      <div className="row">
     <h2 className="formHead">Play Games</h2>
-    <section className="game">
+
+      </div>
+        
+        <div className="row">
       <h2>Coin Flip</h2>
       <p className="gameRules">Guess heads or tails, place a bet, and flip the coin!</p>
         
@@ -176,23 +184,30 @@ const Games = (props) => {
             method="POST"
             className="domoForm"
         >
-          <label htmlFor="guess">Guess: </label>
-          <select id="coinGuess" guess="game">
-            <option value="Heads">Heads</option>
-            <option value="Tails">Tails</option>
-          </select>
+          
+          <div className="input-field col s12">
+            <select id="coinGuess">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="Heads">Heads</option>
+              <option value="Tails">Tails</option>
+            </select>
+            <label >Guess: </label>
+          </div>
+
     
           <label htmlFor="bet">Bet: </label>
           <input id="coinBet" type="number" min="1" name="bet" placeholder="$1"/>
           <input id="flipCoinUpdate" type="hidden" name="credit" value="-1"/>
           <input type="hidden" name="_csrf" value={props.csrf} />
-          <input className="makeDomoSubmit" type="submit" value="Flip Coin" />
+          <input className="makeDomoSubmit waves-effect waves-light btn" type="submit" value="Flip Coin" />
       </form>
       <h2 id="flipCoinResult">Result: </h2>
-    </section>
-    <section className="game">
+          </div>
+
+    <div className="row">
       <h2>More games coming soon...</h2>
-    </section>
+      
+    </div>
     </div>
   );
 };
@@ -218,18 +233,21 @@ const Messages = (props) => {
           className="messageForm"
       >
         <input type="hidden" name="name" value={userName} />
-        <label htmlFor="game">Game Played: </label>
-        <select id="messageGame" name="game">
+        
+    
+    <div className="input-field col s12">
+        <select id="messageGame" name="message">
           <option value="Coin Flip">Coin Flip</option>
           <option value="Roulette">Roulette</option>
           <option value="Blackjack 21">Blackjack 21</option>
           <option value="Texas hold 'em">Texas Hold 'em</option>
         </select>
-        
+    <label htmlFor="game">Game Played: </label>
+      </div>
         <label htmlFor="money">Amount Won: </label>
         <input id="messageMoney" type="number" min="1" name="money" placeholder="$1"/>
         <input type="hidden" name="_csrf" value={props.csrf} />
-        <input className="makeDomoSubmit" type="submit" value="Post Message" />
+        <input className="makeDomoSubmit waves-effect waves-light btn" type="submit" value="Post Message" />
     </form>
     <section id="messages">
     </section>
@@ -249,21 +267,27 @@ const showMessage = (csrf) => {
 const AccountInfo = (props) => {
   return(
     <div id="account">
+    <div className="row">
+    <div className="col s12 m6">
     <h2 className="formHead">Account Information</h2>
     <div id="accountInfo">
-      <h3 >Your Name: <p className="userInformation">{props.user.username}</p></h3>
-      <h3 >Your Credits: <p className="userInformation">${props.user.credit}</p></h3>
+      <h4 >Your Username: {props.user.username}</h4>
+      <h4 >Your Credits: ${props.user.credit}</h4>
     </div>
+    </div>
+    </div>
+    
+    <div className="row">
       <form id="changePassForm"
       name="changePassForm"
       onSubmit={handleChangePass}
       action="/changePass"
       method="POST"
-      className="mainForm"
+      className="mainForm col s12 m6 l4"
       >
     <h2>Change Password</h2>
-    <label htmlFor="username">Username: </label>
-    <input id="user" type="text" name="username" placeholder="username"/>
+    
+    <input id="user" type="hidden" name="username" value={props.user.username}/>
     <label htmlFor="pass">Current Password: </label>
     <input id="pass" type="password" name="pass" placeholder="current password"/>
     <label htmlFor="newpass">New Password: </label>
@@ -271,8 +295,9 @@ const AccountInfo = (props) => {
     <label htmlFor="newpass2">New Password: </label>
     <input id="newpass2" type="password" name="newpass2" placeholder="retype new password"/>
     <input type="hidden" name="_csrf" value={props.csrf}/>
-    <input className="formSubmit" type="submit" value="Change Password"/>
+    <input className="formSubmit waves-effect waves-light btn" type="submit" value="Change Password"/>
     </form>
+    </div>
     </div>
   );
 };
@@ -321,8 +346,8 @@ const UserInfo = function(props){
   userName = props.user.username;
   return(
     <div className="userStuff">
-      <h1 id="welcome">Welcome: <p className="userInformation">{props.user.username}</p></h1>
-      <h1 id="credits">Credits: <p className="userInformation">${props.user.credit}</p></h1>
+      <h4 id="welcome">Welcome: {props.user.username}</h4>
+      <h4 id="credits">Credits: ${props.user.credit}</h4>
     </div>
   );
 };
@@ -351,7 +376,7 @@ const loadMessagesFromServer = () => {
 const HomeWindow = (props) => {
   return(
     <div>
-    <h1 className="pageTitle">Home</h1>
+    <h1 className="pageTitle  center-align">Home</h1>
     </div>
   );
 };
@@ -360,7 +385,7 @@ const HomeWindow = (props) => {
 const GameWindow = (props) => {
   return(
     <div>
-    <h1 className="pageTitle">Games</h1>
+    <h1 className="pageTitle  center-align">Games</h1>
     </div>
   );
 };
@@ -369,7 +394,7 @@ const GameWindow = (props) => {
 const MessageWindow = (props) => {
   return(
     <div>
-    <h1 className="pageTitle">Messages</h1>
+    <h1 className="pageTitle  center-align">Messages</h1>
     </div>
   );
 };
@@ -378,7 +403,7 @@ const MessageWindow = (props) => {
 const AccountWindow = (props) => {
   return(
     <div>
-    <h1 className="pageTitle">Account</h1>
+    <h1 className="pageTitle  center-align">Account</h1>
     </div>
   );
 };
@@ -421,10 +446,10 @@ const setup = function(csrf) {
   csrfToken = csrf;
   
   // set listeners for nav buttons
-  const homeNav = document.querySelector("#homeNav");
-  const gameNav = document.querySelector("#gameNav");
-  const accountNav = document.querySelector("#accountNav");
-  const messageNav = document.querySelector("#messageNav");
+  const homeNav = document.querySelector(".homeNav");
+  const gameNav = document.querySelector(".gameNav");
+  const accountNav = document.querySelector(".accountNav");
+  const messageNav = document.querySelector(".messageNav");
   
   homeNav.addEventListener("click", (e) =>{
     e.preventDefault();
@@ -443,6 +468,7 @@ const setup = function(csrf) {
     showGames(csrf);
     document.querySelector("#errorBubble").style.opacity = 0;
     document.querySelector("#errorBubble").style.display = "none";
+
     return false;
   });
   
@@ -482,3 +508,7 @@ const getToken = () => {
 $(document).ready(function() {
   getToken();
 });
+
+$(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
