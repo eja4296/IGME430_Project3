@@ -221,7 +221,7 @@ var Games = function Games(props) {
             { id: "coinGuess" },
             React.createElement(
               "option",
-              { value: "", disabled: true, selected: true },
+              { value: "", disabled: true },
               "Choose your option"
             ),
             React.createElement(
@@ -588,50 +588,52 @@ var setup = function setup(csrf) {
   csrfToken = csrf;
 
   // set listeners for nav buttons
-  var homeNav = document.querySelector(".homeNav");
-  var gameNav = document.querySelector(".gameNav");
-  var accountNav = document.querySelector(".accountNav");
-  var messageNav = document.querySelector(".messageNav");
+  var homeNav = document.querySelectorAll(".homeNav");
+  var gameNav = document.querySelectorAll(".gameNav");
+  var accountNav = document.querySelectorAll(".accountNav");
+  var messageNav = document.querySelectorAll(".messageNav");
 
-  homeNav.addEventListener("click", function (e) {
-    e.preventDefault();
-    createHomeWindow(csrf);
+  for (var i = 0; i < homeNav.length; i++) {
+    homeNav[i].addEventListener("click", function (e) {
+      e.preventDefault();
+      createHomeWindow(csrf);
 
-    showAddCredit(csrf);
-    document.querySelector("#errorBubble").style.opacity = 0;
-    document.querySelector("#errorBubble").style.display = "none";
+      showAddCredit(csrf);
+      document.querySelector("#errorBubble").style.opacity = 0;
+      document.querySelector("#errorBubble").style.display = "none";
 
-    return false;
-  });
+      return false;
+    });
 
-  gameNav.addEventListener("click", function (e) {
-    e.preventDefault();
-    createGameWindow(csrf);
-    showGames(csrf);
-    document.querySelector("#errorBubble").style.opacity = 0;
-    document.querySelector("#errorBubble").style.display = "none";
+    gameNav[i].addEventListener("click", function (e) {
+      e.preventDefault();
+      createGameWindow(csrf);
+      showGames(csrf);
+      document.querySelector("#errorBubble").style.opacity = 0;
+      document.querySelector("#errorBubble").style.display = "none";
 
-    return false;
-  });
+      return false;
+    });
 
-  accountNav.addEventListener("click", function (e) {
-    e.preventDefault();
-    createAccountWindow(csrf);
-    showAccountInfo(csrf);
-    document.querySelector("#errorBubble").style.opacity = 0;
-    document.querySelector("#errorBubble").style.display = "none";
-    return false;
-  });
+    accountNav[i].addEventListener("click", function (e) {
+      e.preventDefault();
+      createAccountWindow(csrf);
+      showAccountInfo(csrf);
+      document.querySelector("#errorBubble").style.opacity = 0;
+      document.querySelector("#errorBubble").style.display = "none";
+      return false;
+    });
 
-  messageNav.addEventListener("click", function (e) {
-    e.preventDefault();
-    createMessageWindow(csrf);
-    showMessage(csrf);
-    loadMessagesFromServer();
-    document.querySelector("#errorBubble").style.opacity = 0;
-    document.querySelector("#errorBubble").style.display = "none";
-    return false;
-  });
+    messageNav[i].addEventListener("click", function (e) {
+      e.preventDefault();
+      createMessageWindow(csrf);
+      showMessage(csrf);
+      loadMessagesFromServer();
+      document.querySelector("#errorBubble").style.opacity = 0;
+      document.querySelector("#errorBubble").style.display = "none";
+      return false;
+    });
+  }
 
   document.querySelector("#errorBubble").style.opacity = 0;
   document.querySelector("#errorBubble").style.display = "none";
@@ -654,6 +656,15 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('.sidenav').sidenav();
 });
+
+$(document).ready(function () {
+  $('select').formSelect();
+});
+/*
+ $(document).ready(function() {
+    $('select').material_select();
+  });
+*/
 "use strict";
 
 var handleError = function handleError(message) {

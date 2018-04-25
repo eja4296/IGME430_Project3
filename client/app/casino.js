@@ -173,7 +173,7 @@ const Games = (props) => {
 
       </div>
         
-        <div className="row">
+      <div className="row">
       <h2>Coin Flip</h2>
       <p className="gameRules">Guess heads or tails, place a bet, and flip the coin!</p>
         
@@ -187,13 +187,12 @@ const Games = (props) => {
           
           <div className="input-field col s12">
             <select id="coinGuess">
-              <option value="" disabled selected>Choose your option</option>
+              <option value="" disabled>Choose your option</option>
               <option value="Heads">Heads</option>
               <option value="Tails">Tails</option>
             </select>
             <label >Guess: </label>
           </div>
-
     
           <label htmlFor="bet">Bet: </label>
           <input id="coinBet" type="number" min="1" name="bet" placeholder="$1"/>
@@ -243,6 +242,7 @@ const Messages = (props) => {
           <option value="Texas hold 'em">Texas Hold 'em</option>
         </select>
     <label htmlFor="game">Game Played: </label>
+    
       </div>
         <label htmlFor="money">Amount Won: </label>
         <input id="messageMoney" type="number" min="1" name="money" placeholder="$1"/>
@@ -446,50 +446,57 @@ const setup = function(csrf) {
   csrfToken = csrf;
   
   // set listeners for nav buttons
-  const homeNav = document.querySelector(".homeNav");
-  const gameNav = document.querySelector(".gameNav");
-  const accountNav = document.querySelector(".accountNav");
-  const messageNav = document.querySelector(".messageNav");
+  const homeNav = document.querySelectorAll(".homeNav");
+  const gameNav = document.querySelectorAll(".gameNav");
+  const accountNav = document.querySelectorAll(".accountNav");
+  const messageNav = document.querySelectorAll(".messageNav");
   
-  homeNav.addEventListener("click", (e) =>{
-    e.preventDefault();
-    createHomeWindow(csrf);
-    
-    showAddCredit(csrf);
-    document.querySelector("#errorBubble").style.opacity = 0;
-    document.querySelector("#errorBubble").style.display = "none";
-    
-    return false;
-  });
-  
-  gameNav.addEventListener("click", (e) =>{
-    e.preventDefault();
-    createGameWindow(csrf);
-    showGames(csrf);
-    document.querySelector("#errorBubble").style.opacity = 0;
-    document.querySelector("#errorBubble").style.display = "none";
+  for(let i = 0; i < homeNav.length; i++){
+    homeNav[i].addEventListener("click", (e) =>{
+      e.preventDefault();
+      createHomeWindow(csrf);
 
-    return false;
-  });
+      showAddCredit(csrf);
+      document.querySelector("#errorBubble").style.opacity = 0;
+      document.querySelector("#errorBubble").style.display = "none";
+
+      return false;
+    });
+
+      gameNav[i].addEventListener("click", (e) =>{
+      e.preventDefault();
+      createGameWindow(csrf);
+      showGames(csrf);
+      document.querySelector("#errorBubble").style.opacity = 0;
+      document.querySelector("#errorBubble").style.display = "none";
+
+      return false;
+    });
+
+    accountNav[i].addEventListener("click", (e) =>{
+      e.preventDefault();
+      createAccountWindow(csrf);
+      showAccountInfo(csrf);
+      document.querySelector("#errorBubble").style.opacity = 0;
+      document.querySelector("#errorBubble").style.display = "none";
+      return false;
+    });
+
+    messageNav[i].addEventListener("click", (e) =>{
+      e.preventDefault();
+      createMessageWindow(csrf);
+      showMessage(csrf);
+      loadMessagesFromServer();
+      document.querySelector("#errorBubble").style.opacity = 0;
+      document.querySelector("#errorBubble").style.display = "none";
+      return false;
+    });
+  }
   
-  accountNav.addEventListener("click", (e) =>{
-    e.preventDefault();
-    createAccountWindow(csrf);
-    showAccountInfo(csrf);
-    document.querySelector("#errorBubble").style.opacity = 0;
-    document.querySelector("#errorBubble").style.display = "none";
-    return false;
-  });
   
-  messageNav.addEventListener("click", (e) =>{
-    e.preventDefault();
-    createMessageWindow(csrf);
-    showMessage(csrf);
-    loadMessagesFromServer();
-    document.querySelector("#errorBubble").style.opacity = 0;
-    document.querySelector("#errorBubble").style.display = "none";
-    return false;
-  });
+  
+  
+  
   
   document.querySelector("#errorBubble").style.opacity = 0;
   document.querySelector("#errorBubble").style.display = "none";
@@ -512,3 +519,12 @@ $(document).ready(function() {
 $(document).ready(function(){
     $('.sidenav').sidenav();
   });
+
+ $(document).ready(function(){
+    $('select').formSelect();
+  });
+/*
+ $(document).ready(function() {
+    $('select').material_select();
+  });
+*/
