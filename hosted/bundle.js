@@ -1230,7 +1230,7 @@ var Messages = function Messages(props) {
         React.createElement('input', { className: 'makeDomoSubmit waves-effect waves-light btn', type: 'submit', value: 'Post Message' })
       )
     ),
-    React.createElement('div', { id: 'messages', className: 'row' })
+    React.createElement('div', { id: 'messages' })
   );
 };
 
@@ -1363,8 +1363,6 @@ var MessageList = function MessageList(props) {
 
   var messageNodes = newMessageArray.map(function (message) {
 
-    var trimmedDate = message.createdDate.substring(0, 10);
-
     return React.createElement(
       'div',
       { key: message._id, className: 'newMessage' },
@@ -1373,23 +1371,18 @@ var MessageList = function MessageList(props) {
         { className: 'row' },
         React.createElement(
           'div',
-          { className: 'col s3' },
+          { className: 'col s12 m6 l4' },
           React.createElement('img', { id: 'sevens', src: '/assets/img/777.png', alt: '777', className: 'messageImage' })
         ),
         React.createElement(
           'div',
-          { className: 'col s9' },
+          { className: 'col s12 m6 l8' },
           React.createElement(
             'h3',
             { className: 'messageUsername' },
             message.name,
             ': ',
             message.text
-          ),
-          React.createElement(
-            'p',
-            { className: 'createdDate' },
-            trimmedDate
           )
         )
       )

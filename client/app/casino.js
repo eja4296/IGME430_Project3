@@ -826,7 +826,7 @@ const Messages = (props) => {
     </form>
      </div>
     
-    <div id="messages" className="row">
+    <div id="messages">
     </div>
     </div>
   );
@@ -919,18 +919,18 @@ const MessageList = function(props) {
   
   const messageNodes = newMessageArray.map(function(message) {  
     
-    let trimmedDate = message.createdDate.substring(0, 10);
+    
     
     return(
       
       <div key={message._id} className="newMessage">
         <div className="row">
-          <div className="col s3">
+          <div className="col s12 m6 l4">
         <img id="sevens" src="/assets/img/777.png" alt="777" className="messageImage" />
             </div>
-          <div className="col s9">
-        <h3 className="messageUsername">{message.name}: {message.text}</h3>
-            <p className="createdDate">{trimmedDate}</p>
+          <div className="col s12 m6 l8">
+            <h3 className="messageUsername">{message.name}: {message.text}</h3>
+            
           </div>
           
         </div>
