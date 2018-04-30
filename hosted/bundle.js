@@ -1361,7 +1361,11 @@ var MessageList = function MessageList(props) {
     newMessageArray.push(props.messages[i]);
   }
 
+  console.dir(newMessageArray);
+
   var messageNodes = newMessageArray.map(function (message) {
+
+    var trimmedDate = message.createdDate.substring(0, 10);
 
     return React.createElement(
       'div',
@@ -1383,6 +1387,11 @@ var MessageList = function MessageList(props) {
             message.name,
             ': ',
             message.text
+          ),
+          React.createElement(
+            'p',
+            { className: 'createdDate' },
+            trimmedDate
           )
         )
       )

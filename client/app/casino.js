@@ -917,9 +917,12 @@ const MessageList = function(props) {
     
   }
   
+  console.dir(newMessageArray);
+  
   const messageNodes = newMessageArray.map(function(message) {  
     
     
+    let trimmedDate = message.createdDate.substring(0, 10);
     
     return(
       
@@ -929,15 +932,13 @@ const MessageList = function(props) {
         <img id="sevens" src="/assets/img/777.png" alt="777" className="messageImage" />
             </div>
           <div className="col s12 m6 l8">
-            <h3 className="messageUsername">{message.name}: {message.text}</h3>
-            
+        <h3 className="messageUsername">{message.name}: {message.text}</h3>
+            <p className="createdDate">{trimmedDate}</p>
           </div>
           
         </div>
         
       </div>
-      
-      
     );
   });
 
