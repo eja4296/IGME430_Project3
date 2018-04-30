@@ -912,10 +912,19 @@ const MessageList = function(props) {
   
   let newMessageArray = [];
   
-  for(let i = props.messages.length - 1; i > props.messages.length - 11; i--){
-    newMessageArray.push(props.messages[i]);
-    
+  if(props.messages.length > 10){
+    for(let i = props.messages.length - 1; i > props.messages.length - 11; i--){
+    newMessageArray.push(props.messages[i]); 
+    }
   }
+  else{
+    for(let i = props.messages.length - 1; i >= 0; i--){
+    newMessageArray.push(props.messages[i]);
+    }
+  }
+  
+  
+  
   
   console.dir(newMessageArray);
   

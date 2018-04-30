@@ -1357,8 +1357,14 @@ var MessageList = function MessageList(props) {
 
   var newMessageArray = [];
 
-  for (var i = props.messages.length - 1; i > props.messages.length - 11; i--) {
-    newMessageArray.push(props.messages[i]);
+  if (props.messages.length > 10) {
+    for (var i = props.messages.length - 1; i > props.messages.length - 11; i--) {
+      newMessageArray.push(props.messages[i]);
+    }
+  } else {
+    for (var _i2 = props.messages.length - 1; _i2 >= 0; _i2--) {
+      newMessageArray.push(props.messages[_i2]);
+    }
   }
 
   console.dir(newMessageArray);
