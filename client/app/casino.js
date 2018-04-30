@@ -396,6 +396,8 @@ const HomeForm = (props) => {
       <p>Thank you for visiting my Online Casino! When the website is fully functional, you will be required to provide payment information, but for now, please feel free to add credits (up to $100000) to test it out. Enjoy!</p>
     </div>
     </div>
+      
+      
     </div>
   );
 };
@@ -1089,12 +1091,18 @@ const setup = function(csrf) {
   // set global csrf Token
   csrfToken = csrf;
   
+  
   // set listeners for nav buttons
   const homeNav = document.querySelectorAll(".homeNav");
   const fundsNav = document.querySelectorAll(".fundsNav");
   const gameNav = document.querySelectorAll(".gameNav");
   const accountNav = document.querySelectorAll(".accountNav");
   const messageNav = document.querySelectorAll(".messageNav");
+  
+  const homeFundsNav = document.querySelectorAll(".homeFundsNav");
+  const homeGameNav = document.querySelectorAll(".homeGameNav");
+  const homeAccountNav = document.querySelectorAll(".homeAccountNav");
+  const homeMessageNav = document.querySelectorAll(".homeMessageNav");
   
   for(let i = 0; i < homeNav.length; i++){
     homeNav[i].addEventListener("click", (e) =>{
@@ -1153,6 +1161,51 @@ const setup = function(csrf) {
     });
   }
   
+  // For home Nav
+  homeFundsNav[0].addEventListener("click", (e) =>{
+      e.preventDefault();
+      createFundsWindow(csrf);
+
+      showAddCredit(csrf);
+      document.querySelector("#errorBubble").style.opacity = 0;
+      document.querySelector("#errorBubble").style.display = "none";
+
+      return false;
+    });
+
+    homeGameNav[0].addEventListener("click", (e) =>{
+      e.preventDefault();
+      //instance.getSelectedValues();
+      createGameWindow(csrf);
+      showGames(csrf);
+      loadRoulettePercentages(csrf);
+      document.querySelector("#errorBubble").style.opacity = 0;
+      document.querySelector("#errorBubble").style.display = "none";
+
+      return false;
+    });
+
+    homeAccountNav[0].addEventListener("click", (e) =>{
+      e.preventDefault();
+      createAccountWindow(csrf);
+      showAccountInfo(csrf);
+      document.querySelector("#errorBubble").style.opacity = 0;
+      document.querySelector("#errorBubble").style.display = "none";
+      return false;
+    });
+
+    homeMessageNav[0].addEventListener("click", (e) =>{
+      e.preventDefault();
+      
+      createMessageWindow(csrf);
+      showMessage(csrf);
+      loadMessagesFromServer();
+      $('input#input_text').characterCounter();
+      document.querySelector("#errorBubble").style.opacity = 0;
+      document.querySelector("#errorBubble").style.display = "none";
+      return false;
+    });
+  
   
   
   
@@ -1164,6 +1217,7 @@ const setup = function(csrf) {
   showHomeForm();
   createHomeWindow(csrf);
   loadUserData();
+  
 };
 
 const getToken = () => {

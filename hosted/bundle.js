@@ -1555,6 +1555,11 @@ var setup = function setup(csrf) {
   var accountNav = document.querySelectorAll(".accountNav");
   var messageNav = document.querySelectorAll(".messageNav");
 
+  var homeFundsNav = document.querySelectorAll(".homeFundsNav");
+  var homeGameNav = document.querySelectorAll(".homeGameNav");
+  var homeAccountNav = document.querySelectorAll(".homeAccountNav");
+  var homeMessageNav = document.querySelectorAll(".homeMessageNav");
+
   for (var i = 0; i < homeNav.length; i++) {
     homeNav[i].addEventListener("click", function (e) {
       e.preventDefault();
@@ -1611,6 +1616,51 @@ var setup = function setup(csrf) {
       return false;
     });
   }
+
+  // For home Nav
+  homeFundsNav[0].addEventListener("click", function (e) {
+    e.preventDefault();
+    createFundsWindow(csrf);
+
+    showAddCredit(csrf);
+    document.querySelector("#errorBubble").style.opacity = 0;
+    document.querySelector("#errorBubble").style.display = "none";
+
+    return false;
+  });
+
+  homeGameNav[0].addEventListener("click", function (e) {
+    e.preventDefault();
+    //instance.getSelectedValues();
+    createGameWindow(csrf);
+    showGames(csrf);
+    loadRoulettePercentages(csrf);
+    document.querySelector("#errorBubble").style.opacity = 0;
+    document.querySelector("#errorBubble").style.display = "none";
+
+    return false;
+  });
+
+  homeAccountNav[0].addEventListener("click", function (e) {
+    e.preventDefault();
+    createAccountWindow(csrf);
+    showAccountInfo(csrf);
+    document.querySelector("#errorBubble").style.opacity = 0;
+    document.querySelector("#errorBubble").style.display = "none";
+    return false;
+  });
+
+  homeMessageNav[0].addEventListener("click", function (e) {
+    e.preventDefault();
+
+    createMessageWindow(csrf);
+    showMessage(csrf);
+    loadMessagesFromServer();
+    $('input#input_text').characterCounter();
+    document.querySelector("#errorBubble").style.opacity = 0;
+    document.querySelector("#errorBubble").style.display = "none";
+    return false;
+  });
 
   document.querySelector("#errorBubble").style.opacity = 0;
   document.querySelector("#errorBubble").style.display = "none";

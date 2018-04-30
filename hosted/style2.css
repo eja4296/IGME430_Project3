@@ -171,3 +171,19 @@ nav li:hover{
   margin-left: 10px;
 }
 
+#homePageNav{
+  margin-top: 50px;
+}
+
+.homePageNav{
+  width: auto;
+  height: 250px;
+  
+  border-radius: 2px;
+  
+}
+
+.material-icons{
+  display: block;
+  margin-bottom: 25px;
+}
