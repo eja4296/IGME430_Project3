@@ -15,14 +15,8 @@ const MessageSchema = new mongoose.Schema({
     set: setName,
     required: true,
   },
-  money: {
-    type: Number,
-    min: 0,
-    required: true,
-  },
-  game: {
+  text: {
     type: String,
-    trim: true,
     required: true,
   },
   owner: {
@@ -38,8 +32,7 @@ const MessageSchema = new mongoose.Schema({
 
 MessageSchema.statics.toAPI = (doc) => ({
   name: doc.name,
-  money: doc.money,
-  game: doc.game,
+  text: doc.text,
 });
 
 // Finds all messages in database
@@ -48,7 +41,7 @@ MessageSchema.statics.findByOwner = (ownerId, callback) => {
   const search = {
     // owner: convertId(ownerId),
   };
-  return MessageModel.find(search).select('name money game createdDate').exec(callback);
+  return MessageModel.find(search).select('name text createdDate').exec(callback);
 };
 
 MessageModel = mongoose.model('Message', MessageSchema);

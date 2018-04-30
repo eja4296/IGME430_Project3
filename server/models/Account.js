@@ -30,6 +30,11 @@ const AccountSchema = new mongoose.Schema({
     min: 0,
     required: false,
   },
+  winnings: {
+    type: Number,
+    min: 0,
+    required: false,
+  },
   createdDate: {
     type: Date,
     default: Date.now,

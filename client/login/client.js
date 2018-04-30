@@ -52,12 +52,16 @@ const LoginWindow = (props) => {
       method="POST"
       className="mainForm col s12 m6 l4 offset-l4 offset-m3"
       >
+    <div className="input-field">
+    <input id="user" type="text" name="username" className="validate"/>
     <label htmlFor="username">Username: </label>
-    <input id="user" type="text" name="username" placeholder="username"/>
+    </div>
+    <div className="input-field">
+    <input id="pass" type="password" name="pass" className="validate"/>
     <label htmlFor="pass">Password: </label>
-    <input id="pass" type="password" name="pass" placeholder="password"/>
+    </div>
     <input type="hidden" name="_csrf" value={props.csrf}/>
-    <input className="formSubmit waves-effect waves-light btn" type="submit" value="Sign In"/>
+    <input className="formSubmit  waves-effect waves-light btn" type="submit" value="Sign In"/>
     </form>
     </div>
     </div>
@@ -78,12 +82,20 @@ const SignupWindow = (props) => {
       method="POST"
       className="mainForm col s12 m6 l4 offset-l4 offset-m3"
       >
+    <div className="input-field">
+    <input id="user" type="text" name="username" className="validate"/>
     <label htmlFor="username">Username: </label>
-    <input id="user" type="text" name="username" placeholder="username"/>
+    </div>
+    
+    <div className="input-field">
+    <input id="pass" type="password" name="pass" className="validate"/>
     <label htmlFor="pass">Password: </label>
-    <input id="pass" type="password" name="pass" placeholder="password"/>
-      <label htmlFor="pass2">Password: </label>
-    <input id="pass2" type="password" name="pass2" placeholder="retype password"/>
+    </div>
+    
+    <div className="input-field">
+    <input id="pass2" type="password" name="pass2" className="validate"/>
+    <label htmlFor="pass2">Retype Password: </label>
+    </div>
     <input type="hidden" name="_csrf" value={props.csrf}/>
     <input className="formSubmit waves-effect waves-light btn" type="submit" value="Sign Up"/>
     </form>

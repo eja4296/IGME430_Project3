@@ -16,14 +16,13 @@ const messagePage = (req, res) => {
 
 // Handle creating a new message
 const createMessage = (req, res) => {
-  if (!req.body.name || !req.body.money || !req.body.game) {
+  if (!req.body.name || !req.body.text) {
     return res.status(400).json({ error: 'All fields required' });
   }
 
   const MessageData = {
     name: req.body.name,
-    money: req.body.money,
-    game: req.body.game,
+    text: req.body.text,
     owner: req.session.account._id,
   };
 

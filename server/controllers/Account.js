@@ -59,6 +59,7 @@ const signup = (request, response) => {
       username: req.body.username,
       salt,
       credit: 0,
+      winnings: 0,
       password: hash,
     };
 
@@ -151,8 +152,26 @@ Account.AccountModel.findByUsername(req.session.account.username, (err, user) =>
   }
 
   let totalCredit;
+  let newCredit;
+  let currentCredit;
+  let winnings;
+  let currentWinnings;
   try {
-    totalCredit = parseInt(user.credit, 10) + parseInt(req.body.credit, 10);
+    newCredit = parseInt(req.body.credit, 10);
+    currentCredit = parseInt(user.credit, 10);
+    totalCredit = newCredit + currentCredit;
+  } catch (err2) {
+    return res.status(400).json({ error: 'Must be a number' });
+  }
+
+
+  try {
+    winnings = parseInt(req.body.winnings, 10);
+    currentWinnings = parseInt(user.winnings, 10);
+    if (winnings > 0) {
+      winnings = currentWinnings + newCredit;
+      user.set('winnings', winnings);
+    }
   } catch (err2) {
     return res.status(400).json({ error: 'Must be a number' });
   }
@@ -161,6 +180,7 @@ Account.AccountModel.findByUsername(req.session.account.username, (err, user) =>
   if (totalCredit > 100000) {
     return res.status(400).json({ error: 'Exceeds max credits' });
   }
+
 
   user.set('credit', totalCredit);
   user.save();
@@ -179,6 +199,7 @@ const getToken = (request, response) => {
 
   res.json(csrfJSON);
 };
+
 
 module.exports.loginPage = loginPage;
 module.exports.login = login;

@@ -62,19 +62,27 @@ var LoginWindow = function LoginWindow(props) {
             className: "mainForm col s12 m6 l4 offset-l4 offset-m3"
           },
           React.createElement(
-            "label",
-            { htmlFor: "username" },
-            "Username: "
+            "div",
+            { className: "input-field" },
+            React.createElement("input", { id: "user", type: "text", name: "username", className: "validate" }),
+            React.createElement(
+              "label",
+              { htmlFor: "username" },
+              "Username: "
+            )
           ),
-          React.createElement("input", { id: "user", type: "text", name: "username", placeholder: "username" }),
           React.createElement(
-            "label",
-            { htmlFor: "pass" },
-            "Password: "
+            "div",
+            { className: "input-field" },
+            React.createElement("input", { id: "pass", type: "password", name: "pass", className: "validate" }),
+            React.createElement(
+              "label",
+              { htmlFor: "pass" },
+              "Password: "
+            )
           ),
-          React.createElement("input", { id: "pass", type: "password", name: "pass", placeholder: "password" }),
           React.createElement("input", { type: "hidden", name: "_csrf", value: props.csrf }),
-          React.createElement("input", { className: "formSubmit waves-effect waves-light btn", type: "submit", value: "Sign In" })
+          React.createElement("input", { className: "formSubmit  waves-effect waves-light btn", type: "submit", value: "Sign In" })
         )
       )
     )
@@ -102,23 +110,35 @@ var SignupWindow = function SignupWindow(props) {
             className: "mainForm col s12 m6 l4 offset-l4 offset-m3"
           },
           React.createElement(
-            "label",
-            { htmlFor: "username" },
-            "Username: "
+            "div",
+            { className: "input-field" },
+            React.createElement("input", { id: "user", type: "text", name: "username", className: "validate" }),
+            React.createElement(
+              "label",
+              { htmlFor: "username" },
+              "Username: "
+            )
           ),
-          React.createElement("input", { id: "user", type: "text", name: "username", placeholder: "username" }),
           React.createElement(
-            "label",
-            { htmlFor: "pass" },
-            "Password: "
+            "div",
+            { className: "input-field" },
+            React.createElement("input", { id: "pass", type: "password", name: "pass", className: "validate" }),
+            React.createElement(
+              "label",
+              { htmlFor: "pass" },
+              "Password: "
+            )
           ),
-          React.createElement("input", { id: "pass", type: "password", name: "pass", placeholder: "password" }),
           React.createElement(
-            "label",
-            { htmlFor: "pass2" },
-            "Password: "
+            "div",
+            { className: "input-field" },
+            React.createElement("input", { id: "pass2", type: "password", name: "pass2", className: "validate" }),
+            React.createElement(
+              "label",
+              { htmlFor: "pass2" },
+              "Retype Password: "
+            )
           ),
-          React.createElement("input", { id: "pass2", type: "password", name: "pass2", placeholder: "retype password" }),
           React.createElement("input", { type: "hidden", name: "_csrf", value: props.csrf }),
           React.createElement("input", { className: "formSubmit waves-effect waves-light btn", type: "submit", value: "Sign Up" })
         )
